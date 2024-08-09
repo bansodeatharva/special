@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Special</title>
+    </head>
+<body>
+
+    <div class="container" id="points-container">
+          
+</body>
+
+<script>
+var val= confirm("Something Special For You Rakhi..!") ;
+
+    const container = document.getElementById("points-container");
+   const numPoints = 10;
+   
+   
+   function createPoint() {
+       const point = document.createElement("div");
+       point.classList.add("point");
+       container.appendChild(point);
+       point.style.left = "50%";
+       point.style.top = "50%";
+   
+   
+     
+       const animation = point.animate(
+           [
+               { transform: "translate(-50%, -50%) rotate(-50deg)" },
+               { transform: "translate(20%, -40%)"}
+           ],
+           {
+               duration: 2000 + Math.random() * 2000,
+               easing: "linear",
+               iterations: Infinity,
+               direction: "alternate",
+           }
+       );
+   
+       return { point, animation };
+   }
+   
+   function startAnimation() {
+       for (let i = 0; i < numPoints; i++) {
+   
+           createPoint();
+       }
+   }
+   
+   startAnimation();
+   
+   
+   </script>
+
+
+ <style>
+    body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #000000;
+}
+
+.container {
+    position: center;
+    width: 100%;
+    height:100%;
+}
+.container::before{
+    content: '';
+    width: 100px;
+    height: 300px;
+    border-radius: 50%;
+    border-left: 10px solid green;
+    border-bottom: 10px solid transparent;
+    position: absolute;
+    top: 53%;
+    left: 48.4%;
+}
+
+.container::after{
+    content: '';
+    width:90px;
+    height:60px;
+    border-radius: 50%;
+    border-bottom: 20px solid transparent;
+    border-top: 20px solid green;
+    position: absolute;
+    top: 57%;
+    left: 49%;
+}
+.point {
+  width: 100px;
+  height: 100px;
+  background: #C561C1;
+  background:linear-gradient(180deg, rgba(244,226,54,1) 0%, rgba(253,29,29,1) 100%);
+  position: absolute;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius:0px ;
+  border-bottom-right-radius: 200px;
+  border-top-left-radius: 200px;
+} 
+.box {
+      length: 300px;
+width: 300px;
+      margin:  auto;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+
+ </style>
+</div>
+</html>
